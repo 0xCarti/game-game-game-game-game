@@ -1,0 +1,40 @@
+{
+  "level_id": "level_01",
+  "name": "Small Banquet",
+  "event_duration_seconds": 180,
+  "dropoff_capacity": 4,
+  "waiter_spawn_interval_seconds": 11,
+  "waiter_spawn_interval_end_seconds": 8,
+  "waiter_patience_seconds": 10,
+  "tray_item_count_min": 1,
+  "tray_item_count_max": 3,
+  "glass_item_count_min": 1,
+  "glass_item_count_max": 2,
+  "glass_tray_chance": 0.45,
+  "enabled_items": ["plate_small", "glass_basic"],
+  "enabled_systems": {
+	"garbage": true,
+	"crates": true,
+	"glasses": true,
+	"liquid_bucket": true,
+	"cutlery": false,
+	"post_event_report": true
+  },
+  "crate_capacities": {
+	"plate_small": 18
+  },
+  "glass_rack_capacity": 10,
+  "garbage_capacity": 18,
+  "liquid_bucket_capacity": 7,
+  "service_collapse_max": 100,
+  "player_movement_speed": 180,
+  "waiter_movement_speed": 120,
+  "waiter_speed_variance": 8,
+  "initial_clean_tray_stock": 3,
+  "waiting_stress_per_second": 1.5,
+  "dropoff_full_stress_per_second": 1.5,
+  "garbage_blocked_stress_per_second": 2.8,
+  "liquid_blocked_stress_per_second": 2.4,
+  "calm_recovery_per_second": 1.8,
+  "passive_recovery_per_second": 0.45
+}
