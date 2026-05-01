@@ -150,11 +150,39 @@ var overlay_label: Label
 
 func _ready() -> void:
 	randomize()
+	_ensure_input_actions()
 	_load_level_config()
 	score_manager = ScoreManagerData.new()
 	collapse_manager = ServiceCollapseManagerData.new()
 	_build_ui()
 	_restart_event()
+
+
+func _ensure_input_actions() -> void:
+	_ensure_input_action("move_up", [KEY_W, KEY_UP])
+	_ensure_input_action("move_down", [KEY_S, KEY_DOWN])
+	_ensure_input_action("move_left", [KEY_A, KEY_LEFT])
+	_ensure_input_action("move_right", [KEY_D, KEY_RIGHT])
+
+
+func _ensure_input_action(action_name: String, keys: Array) -> void:
+	if not InputMap.has_action(action_name):
+		InputMap.add_action(action_name)
+
+	var events := InputMap.action_get_events(action_name)
+	for key_value in keys:
+		var keycode := int(key_value)
+		var already_present := false
+		for event in events:
+			if event is InputEventKey and event.keycode == keycode:
+				already_present = true
+				break
+		if already_present:
+			continue
+
+		var key_event := InputEventKey.new()
+		key_event.keycode = keycode
+		InputMap.action_add_event(action_name, key_event)
 
 
 func _load_level_config() -> void:
@@ -414,15 +442,16 @@ func _schedule_next_dish_pit_cycle() -> void:
 
 
 func _update_player(delta: float) -> void:
-	var input_vector := Vector2.ZERO
-	if Input.is_physical_key_pressed(KEY_W):
-		input_vector.y -= 1.0
-	if Input.is_physical_key_pressed(KEY_S):
-		input_vector.y += 1.0
-	if Input.is_physical_key_pressed(KEY_A):
-		input_vector.x -= 1.0
-	if Input.is_physical_key_pressed(KEY_D):
-		input_vector.x += 1.0
+	var input_vector := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if input_vector == Vector2.ZERO:
+		if Input.is_key_pressed(KEY_W) or Input.is_physical_key_pressed(KEY_W):
+			input_vector.y -= 1.0
+		if Input.is_key_pressed(KEY_S) or Input.is_physical_key_pressed(KEY_S):
+			input_vector.y += 1.0
+		if Input.is_key_pressed(KEY_A) or Input.is_physical_key_pressed(KEY_A):
+			input_vector.x -= 1.0
+		if Input.is_key_pressed(KEY_D) or Input.is_physical_key_pressed(KEY_D):
+			input_vector.x += 1.0
 
 	if input_vector != Vector2.ZERO:
 		input_vector = input_vector.normalized()

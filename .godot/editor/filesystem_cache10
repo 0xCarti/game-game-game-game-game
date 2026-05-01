@@ -1,6 +1,6 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1777668211
-export_presets.cfg::TextFile::-1::1777352067::0::1::::<><><>0<>0<><>::
+::res://::1777672372
+export_presets.cfg::TextFile::-1::1777672229::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::7768047422298850771::1777341668::1777342974::1::::<><><>0<>0<>9762551fb13818365f36ee10cec794fe<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1777347924::0::1::::<><><>0<>0<><>::
 ::res://data/::1777344721
@@ -9,7 +9,7 @@ level_01.json::JSON::-1::1777350406::0::1::::<><><>0<>0<><>::
 ::res://scenes/::1777341668
 main.tscn::PackedScene::-1::1777341668::0::1::::<><><>0<>0<><>::res://scripts/main.gd
 ::res://scripts/::1777344721
-main.gd::GDScript::805643245614353206::1777351033::0::1::::<>Node2D<><>0<>0<><>::
+main.gd::GDScript::805643245614353206::1777672359::0::1::::<>Node2D<><>0<>0<><>::
 ::res://scripts/core/::1777344954
 LevelConfig.gd::GDScript::590568720744580679::1777347493::0::1::::LevelConfig<>RefCounted<><>0<>0<><>::
 ScoreManager.gd::GDScript::8348587842217724359::1777349602::0::1::::<>RefCounted<><>0<>0<><>::
