@@ -1,4 +1,0 @@
-res://scripts/main.gd
-res://scripts/core/LevelConfig.gd
-res://scripts/core/ScoreManager.gd
-res://data/levels/level_01.json
